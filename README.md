@@ -1,6 +1,8 @@
 # Expense Tracker
 
 Brief description of your project.
+Deployed :)
+https://expensetracker-8ca61.web.app/
 
 ## Table of Contents
 
