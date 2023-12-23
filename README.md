@@ -4,15 +4,14 @@ Brief description of your project.
 
 ## Table of Contents
 
-- [Features](#features)
+- [Preview](#preview)
 - [Usage](#usage)
 - [Installation](#installation)
 
 
-## Features
+## Preview
 
-- List your incomes and your expenses.
-- Observe your balance.
+![Preview photo](https://github.com/Bgyurov/Expense-Tracker/blob/prv.png)
 
 ## Usage
  - Balance Display:
