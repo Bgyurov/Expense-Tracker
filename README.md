@@ -1,8 +1,37 @@
-# React + Vite
+# Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Brief description of your project.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Usage](#usage)
+- [Installation](#installation)
+
+
+## Features
+
+- List your incomes and your expenses.
+- Observe your balance.
+
+## Usage
+ - Balance Display:
+
+The top section displays the current balance of the user, calculated as the sum of income and expenses.
+ - Income and Expense Summary:
+
+There are two sections, one for income and one for expenses, each displaying the total amount for that category.
+The values are dynamically updated based on user input.
+
+ - Transaction History:
+
+Below the summary, there is a transaction history section displaying a list of transactions.
+Each transaction shows the text description and the corresponding amount.
+The color of the amount text is green for income and red for expenses.
+
+## Installation
+
+1. Download the repository:
+2. cd task-project
+3. npm i
+4. npm run dev
