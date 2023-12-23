@@ -11,7 +11,7 @@ Brief description of your project.
 
 ## Preview
 
-![Preview photo]([https://github.com/Bgyurov/Expense-Tracker/blob/prv.png](https://github.com/Bgyurov/Expense-Tracker/blob/main/prv))
+![Preview photo](https://github.com/Bgyurov/Expense-Tracker/blob/main/prv)
 
 ## Usage
  - Balance Display:
