@@ -11,6 +11,9 @@ import { Footer } from './Footer';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 
 
@@ -24,6 +27,8 @@ const theme = createTheme({
         },
     },
 });
+const categories = ['Groceries', 'Utilities', 'Rent', 'Entertainment', 'Other'];
+
 const App = () => {
     const [historyListItem, setHistoryListItem] = useState([])
     const [budget, setBudget] = useState(0)
@@ -33,6 +38,7 @@ const App = () => {
     const [formData, setFormData] = useState({
         text: '',
         amount: '',
+        category: '',
     });
 
 
@@ -48,6 +54,7 @@ const App = () => {
             id: randomId,
             text: formData.text,
             amount: formData.amount,
+            category: formData.category,
         };
         if (Number(formData.amount) > 0) {
             setIncome(income + Number(formData.amount))
@@ -59,8 +66,8 @@ const App = () => {
         setFormData({ text: '', amount: '' })
     };
 
-    const handleDelete = (event, itemId,amount) => {
-        event.preventDefault(); 
+    const handleDelete = (event, itemId, amount) => {
+        event.preventDefault();
         const updatedState = historyListItem.filter(item => item.id !== itemId);
         if (Number(amount) > 0) {
             setIncome(income - Number(amount))
@@ -150,6 +157,7 @@ const App = () => {
 
                             <form onSubmit={handleSubmit}>
                                 <Box p={2}>
+                                <InputLabel sx={{textAlign: 'left'}}>Text</InputLabel>
 
                                     <TextField
                                         fullWidth
@@ -163,9 +171,10 @@ const App = () => {
                                     />
                                 </Box>
                                 <Box p={2}>
+                                <InputLabel sx={{textAlign: 'left'}}>Amount</InputLabel>
+
                                     <TextField
                                         fullWidth
-
                                         placeholder='Enter Amount...'
                                         variant="outlined"
                                         name="amount"
@@ -175,6 +184,27 @@ const App = () => {
                                         onChange={handleChange}
                                         helperText="(negative-exense,positive-income)"
                                     />
+                                </Box>
+                                <Box p={2}>
+                                <InputLabel sx={{textAlign: 'left'}}>Category</InputLabel>
+                                    <Select
+                                        fullWidth
+                                        variant="outlined"
+                                        name="category"
+                                        value={formData.category}
+                                        onChange={handleChange}
+                                        displayEmpty
+                                        required
+                                    >
+                                        <MenuItem value="" disabled>
+                                            Enter Category...
+                                        </MenuItem>
+                                        {categories.map((category) => (
+                                            <MenuItem key={category} value={category}>
+                                                {category}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
                                 </Box>
 
                                 <Box p={2}>
