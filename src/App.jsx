@@ -14,7 +14,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-
+import { PieChart } from '@mui/x-charts/PieChart';
 
 
 const theme = createTheme({
@@ -27,13 +27,24 @@ const theme = createTheme({
         },
     },
 });
-const categories = ['Groceries', 'Utilities', 'Rent', 'Entertainment', 'Other'];
-
+const categories = [
+    { label: 'Housing', value: 'housing', count: 0 },
+    { label: 'Transportation', value: 'transportation' },
+    { label: 'Utilities', value: 'utilities' },
+    { label: 'Healthcare', value: 'healthcare' },
+    { label: 'Insurance', value: 'insurance' },
+    { label: 'Entertainment', value: 'entertainment' },
+    { label: 'Food', value: 'food' },
+    { label: 'Debt Payments', value: 'debt_payments' },
+    { label: 'Savings', value: 'savings' },
+    { label: 'Other', value: 'other' },
+  ];
 const App = () => {
     const [historyListItem, setHistoryListItem] = useState([])
     const [budget, setBudget] = useState(0)
     const [income, setIncome] = useState(0)
     const [expense, setExpense] = useState(0)
+    
 
     const [formData, setFormData] = useState({
         text: '',
@@ -56,6 +67,7 @@ const App = () => {
             amount: formData.amount,
             category: formData.category,
         };
+        
         if (Number(formData.amount) > 0) {
             setIncome(income + Number(formData.amount))
         } else {
@@ -128,7 +140,9 @@ const App = () => {
                                 {historyListItem.map(x =>
                                     <ListItem key={x.id}>
 
-                                        <ListItemText primary={x.text} />
+                                        <ListItemText primary={x.text} secondary={x.category} />
+                                        
+
                                         <ListItemText primary={x.amount} sx={{ textAlign: "right", color: x.amount > 0 ? 'green' : 'red' }} />
 
 
@@ -157,7 +171,7 @@ const App = () => {
 
                             <form onSubmit={handleSubmit}>
                                 <Box p={2}>
-                                <InputLabel sx={{textAlign: 'left'}}>Text</InputLabel>
+                                    <InputLabel sx={{ textAlign: 'left' }}>Text</InputLabel>
 
                                     <TextField
                                         fullWidth
@@ -171,7 +185,7 @@ const App = () => {
                                     />
                                 </Box>
                                 <Box p={2}>
-                                <InputLabel sx={{textAlign: 'left'}}>Amount</InputLabel>
+                                    <InputLabel sx={{ textAlign: 'left' }}>Amount</InputLabel>
 
                                     <TextField
                                         fullWidth
@@ -186,7 +200,7 @@ const App = () => {
                                     />
                                 </Box>
                                 <Box p={2}>
-                                <InputLabel sx={{textAlign: 'left'}}>Category</InputLabel>
+                                    <InputLabel sx={{ textAlign: 'left' }}>Category</InputLabel>
                                     <Select
                                         fullWidth
                                         variant="outlined"
@@ -200,8 +214,8 @@ const App = () => {
                                             Enter Category...
                                         </MenuItem>
                                         {categories.map((category) => (
-                                            <MenuItem key={category} value={category}>
-                                                {category}
+                                            <MenuItem key={category.value} value={category.label}>
+                                                {category.label}
                                             </MenuItem>
                                         ))}
                                     </Select>
@@ -214,11 +228,26 @@ const App = () => {
                                 </Box>
                             </form>
 
+                        {/* {historyListItem.length != 0 && (
+
+                            <PieChart
+                                series={[
+                                    {
+                                        data: [
+                                            { id: 0, value: 0, label: 'series A' },
+                                            { id: 1, value: 0, label: 'series B' },
+                                            { id: 2, value: 0, label: 'series C' },
+                                        ],
+                                    },
+                                ]}
+                                width={400}
+                                height={200}
+                            />
+                        )} */}
                         </Paper>
                     </Grid>
                 </Grid>
             </ThemeProvider>
-
             <Footer></Footer>
 
         </>
