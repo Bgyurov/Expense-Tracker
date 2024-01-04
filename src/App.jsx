@@ -228,22 +228,29 @@ const App = () => {
                                 </Box>
                             </form>
 
-                        {/* {historyListItem.length != 0 && (
+                        
+                            {/* <PieChart
+                            series={[
+                                {
+                                    
+                                    data: [
+                                             { id: 0, value: 50, label: 'Housing' },
+                                             { id: 0, value: 30, label: 'Nz' },
+                                             { id: 0, value: 30, label: 'Nz' },
+                                             { id: 0, value: 30, label: 'Nz' },
 
-                            <PieChart
-                                series={[
-                                    {
-                                        data: [
-                                            { id: 0, value: 0, label: 'series A' },
-                                            { id: 1, value: 0, label: 'series B' },
-                                            { id: 2, value: 0, label: 'series C' },
+
+                                         
                                         ],
+                                       
                                     },
                                 ]}
+                                
                                 width={400}
                                 height={200}
-                            />
-                        )} */}
+                                />
+                                
+                       */}
                         </Paper>
                     </Grid>
                 </Grid>
